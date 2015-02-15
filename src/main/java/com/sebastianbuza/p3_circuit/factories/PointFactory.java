@@ -12,7 +12,7 @@ import java.security.InvalidParameterException;
  */
 @Component
 public class PointFactory {
-    Point getPoint(String type, Boolean value){
+    public Point getPoint(String type, Boolean value){
         if(type.equals("start")){
             return new StartPoint(value);
         }else{
@@ -20,9 +20,17 @@ public class PointFactory {
         }
     }
 
-    Point getPoint(String type, Point left, Point right, String operation){
+    public Point getPoint(String type, Point left, Point right, String operation){
         if(type.equals("gateway")){
             return new Gateway(left, right, operation);
+        }else{
+            throw new InvalidParameterException("invalid point");
+        }
+    }
+
+    public Point getPoint(String type, String operation, String left, String right){
+        if(type.equals("gateway")){
+            return new Gateway(operation, left, right);
         }else{
             throw new InvalidParameterException("invalid point");
         }

@@ -3,25 +3,25 @@
     {
       "type": "start",
       "name": "a",
-      "value": false
+      "value": true
     },
 
     {
       "type": "start",
       "name": "b",
-      "value": false
+      "value": true
     },
 
     {
       "type": "start",
       "name": "c",
-      "value": true
+      "value": false
     },
 
     {
       "type": "gateway",
       "name": "g1",
-      "operation": "&&",
+      "operation": "^",
       "left" : "a",
       "right": "b"
     },
@@ -29,7 +29,7 @@
     {
       "type": "gateway",
       "name": "g2",
-      "operation": "||",
+      "operation": "^",
       "left" : "g1",
       "right": "c"
     },
@@ -39,13 +39,6 @@
       "name": "g3",
       "operation": "!",
       "left" : "g2"
-    },
-
-    {
-      "type": "gateway",
-      "name": "g4",
-      "operation": "!",
-      "left" : "g3"
     }
   ]
 }

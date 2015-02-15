@@ -31,6 +31,12 @@ public enum Operation {
                 return first.isTrue() || second.isTrue();
             case XOR:
                 return first.isTrue() ^ second.isTrue();
+            case NOT:
+                if(first != null){
+                    return !first.isTrue();
+                }else if(second != null){
+                    return !second.isTrue();
+                }
             default:
                 return false;
         }

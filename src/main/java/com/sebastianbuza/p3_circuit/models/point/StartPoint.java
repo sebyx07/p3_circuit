@@ -15,4 +15,11 @@ public class StartPoint implements Point {
     public Boolean isTrue() {
         return value;
     }
+
+    @Override
+    public String toString() {
+        return "StartPoint{" +
+                "value=" + value +
+                '}';
+    }
 }

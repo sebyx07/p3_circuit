@@ -8,7 +8,9 @@ import java.security.InvalidParameterException;
 public class Gateway implements Point {
 
     private Point left;
+    private String leftString;
     private Point right;
+    private String rightString;
     private Boolean value;
     private Operation operation;
 
@@ -23,6 +25,12 @@ public class Gateway implements Point {
         this.operation = calculateOperation(operationString);
     }
 
+    public Gateway(String operationString, String leftString, String rightString) throws InvalidParameterException{
+        this.leftString = leftString;
+        this.rightString = rightString;
+        this.operation = calculateOperation(operationString);
+    }
+
     @Override
     public Boolean isTrue() {
         if(value == null){
@@ -33,11 +41,10 @@ public class Gateway implements Point {
 
     private Boolean calculateValue(){
         if(right != null){
-            value = operation.runOperation(left, right);
+            return operation.runOperation(left, right);
         }else{
-            value = operation.runOperation(left);
+            return operation.runOperation(left);
         }
-        return value;
     }
 
     private Operation calculateOperation(String str) throws InvalidParameterException {
@@ -71,5 +78,31 @@ public class Gateway implements Point {
 
     public Operation getOperation() {
         return operation;
+    }
+
+    public void setLeft(Point left) {
+        this.left = left;
+    }
+
+    public void setRight(Point right) {
+        this.right = right;
+    }
+
+    public String getLeftString() {
+        return leftString;
+    }
+
+    public String getRightString() {
+        return rightString;
+    }
+
+    @Override
+    public String toString() {
+        return "Gateway{" +
+                ", leftString='" + leftString + '\'' +
+                ", rightString='" + rightString + '\'' +
+                ", value=" + value +
+                ", operation=" + operation +
+                '}';
     }
 }

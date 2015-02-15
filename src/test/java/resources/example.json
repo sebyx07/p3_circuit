@@ -1,0 +1,24 @@
+{
+  "points": [
+    {
+      "type": "start",
+      "name": "a",
+      "value": true
+    },
+
+    {
+      "type": "gateway",
+      "name": "b",
+      "operation": "!",
+      "left": "a"
+    },
+
+    {
+      "type": "gateway",
+      "name": "c",
+      "operation": "||",
+      "left" : "a",
+      "right": "b"
+    }
+  ]
+}
